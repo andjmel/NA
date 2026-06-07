@@ -92,9 +92,10 @@ A = zeros(n, n+1);
 A(:,1) = X;      % 1. колона: чворови
 A(:,2) = F;      % 2. колона: f(xi) — нулти ред
 
-for j = 1:n-1          % j = ред подељених разлика
-    for i = 1:n-j      % i = редни број у том реду
+for j = 1:n-1          % j = kolona
+    for i = 1:n-j      % i = red
         A(i,j+2) = (A(i+1,j+1) - A(i,j+1)) / (X(i+j) - X(i));
+%trenutna poz= prethodni red sled poz- preth red tr poz/ cvor udaljenosti- trenutni cvor
     end
 end
 disp(A);
@@ -116,7 +117,7 @@ Q = 1;        % Q прати производ (x-x0)(x-x1)...
 
 for j = 1:n-1
     Q = conv(Q, [1 -X(j)]);     % Q = Q * (x - xj)
-    P = [0 P] + Q * A(1,j+2);  % додајемо novi clan
+    P = [0 P] + Q * A(1,j+2);  % додајемо novi clan ali mnozi se iz svake prvi red samo
     % [0 P] повећава степен P за 1 да би сабирање радило
 end
 P
