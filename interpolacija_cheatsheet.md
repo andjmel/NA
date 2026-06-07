@@ -29,11 +29,11 @@ fprintf("Priblizna vrednost f(%.4f) = %.6f", x0, P);
 
 ---
 
-## 2. ЛАГРАНЖ — Формирање полинома (даје вектор коефицијената)
+## 2. ЛАГРАНЖ — Формирање полинома (даје вектор коефицијената) 
 
 ```matlab
 X = [0 1 3 4];
-f = [1 3 2 1];
+f = [1 3 2 1]; %npr da je f bilo x+1 onda koristimo F=f(X) da dobijem pol i tako ide u petlju
 x0 = 3.5;
 n = length(X);
 
@@ -46,7 +46,7 @@ for i = 1:n
             % conv множи полиноме, [1 -X(j)] = (x - X(j))
         end
     end
-    Pol = Pol + L*f(i);
+    Pol = Pol + L*F(i); %ako je f funkc i F polinom
 end
 Pol   % вектор коефицијената нпр. [a b c d] = ax^3 + bx^2 + cx + d
 
