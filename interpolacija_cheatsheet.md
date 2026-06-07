@@ -20,7 +20,7 @@ for i = 1:n
             L = L*(x0 - X(j))/(X(i)-X(j));
         end
     end
-    P = P + L*f(i);
+    P = P + L*f(i); #f(i) ako je f dat kao polinom
 end
 fprintf("Priblizna vrednost f(%.4f) = %.6f", x0, P);
 ```
