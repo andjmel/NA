@@ -165,6 +165,11 @@ Ihs = h/3 * (F(1,2) + F(n+1,2) + 4*sum(F(:,3)) + 2*sum(F(:,4)))
 %   коефицијент 2:    x4, x8, ...       → F(5:4:n, 4), тј. MATLAB индекси 5,9,...
 
 I2hs = (2*h)/3 * (sum(F(:,2)) + 4*sum(F(3:4:n,4)) + 2*sum(F(5:4:n,4)))
+%formula pravougaonika
+I2hp = (2*h)*(F(1,2)+sum(F(:,4)));
+ 
+%formula trapeza
+I2ht = 2*h*((F(1,2)+F(n+1,2))/2+sum(F(:,4)));
 
 E = abs(Ihs - I2hs) / (2^p - 1)    % Рунгеова оцена грешке
 ```
